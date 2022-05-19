@@ -8,7 +8,7 @@ class LinksController < ApplicationController
     link = find_link 
     if link.expired_date < Time.now
       link.destroy!
-      redirect_to root_url, notice: "Link got expired"
+      redirect_to root_url, notice: "Accessing expired link"
     else
       if link.update(clicked: link.clicked + 1)
         redirect_to link.url 

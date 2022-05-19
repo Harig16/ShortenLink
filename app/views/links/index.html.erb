@@ -1,7 +1,10 @@
+<h1> Welcome to Shorten Link</h1>
+
 <div id="errors"></div>
 
+<p>Please enter your url here</p>
 <%= render 'links/new' %>
 
-<% @links.each do |link| %>
+<%= @links.each do |link| %>
   <%= render link %>
 <% end %>
