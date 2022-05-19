@@ -15,14 +15,14 @@ class Shortener
     )
   end
 
+  def short_link 
+    digest_link = get_digest 
+    digest_link unless link_model.exists?(shorten_link: digest_link)
+  end
+
   private
 
   def get_digest
     SecureRandom.uuid[0...5]
-  end
-
-  def short_link 
-    digest_link = get_digest 
-    digest_link unless link_model.exists?(shorten_link: digest_link)
   end
 end
