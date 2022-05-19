@@ -1,2 +1,3 @@
-var link = "<%= @link.shorten_link %>"
+var link = "<%= j render 'link', link: @link %>"
+document.getElementById("link_url").value = "";
 document.getElementById("shortener-link").innerHTML = link;
