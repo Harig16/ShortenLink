@@ -4,16 +4,13 @@ class LinksController < ApplicationController
     @links = Link.all.order("created_at desc")
   end
 
-  def new
-  end
-
   def create
     shortener = Shortener.new(link_params[:url])
     @link = shortener.generate_shorter_link
     if @link.persisted?
       respond_to :js
     else
-      render :new, notice: "Can't create"
+      render "error.js.erb"
     end
   end
 

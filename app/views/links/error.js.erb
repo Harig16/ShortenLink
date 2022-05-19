@@ -1,0 +1,13 @@
+var message = `<%= @link.errors.full_messages.join(". ") %>`;
+
+var linkError = document.getElementById("errors");
+linkError.innerHTML = displayInList(message);
+
+function displayInList(value) {
+  txt = ""
+  v = value.split(".");
+  for(let x of v){
+    txt += "<li>" + x + "</li>";
+  }
+  return txt;
+}
