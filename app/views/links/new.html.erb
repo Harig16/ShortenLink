@@ -1,6 +1,12 @@
+<% if notice %>
+  <p><%= notice %></p>
+<% end %>
+
 <div class="form">
-  <%= form_with model: @link do |form| %>
-    <%= form.text_field :original_url %>
+  <%= form_with model: Link.new, remote: true do |form| %>
+    <%= form.text_field :url %>
     <%= form.submit "Short link" %>
   <% end %>
 </div>
+
+<div id="shortener-link"></div>
