@@ -11,7 +11,8 @@ class Shortener
   def generate_shorter_link
     link_model.create(
       url: url,
-      shorten_link: short_link
+      shorten_link: short_link,
+      expired_date: expired_at
     )
   end
 
@@ -24,5 +25,9 @@ class Shortener
 
   def get_digest
     SecureRandom.uuid[0...5]
+  end
+
+  def expired_at
+    Time.now + 1.month 
   end
 end
